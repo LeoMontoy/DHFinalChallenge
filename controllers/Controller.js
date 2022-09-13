@@ -6,6 +6,9 @@ const Controller = {
 
         res.render('index')
 
+    },
+    listado: (req,res)=>{
+        res.render('listado')
     }
 
 

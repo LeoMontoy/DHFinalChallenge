@@ -1,10 +1,9 @@
 const express = require('express');
 const router = express.Router();
 const Validation = require('../middlewares/validation');
-const Controller = require('../controllers/Controller')
+const productsController = require('../controllers/productsController');
 
-router.get('/', Controller.listado);
-router.get('/prod', Controller.listado); 
-
+router.get('/', productsController.list);
 
 module.exports = router;
+
