@@ -1,7 +1,7 @@
 const sequelize = require("sequelize");
 
 module.exports = (sequelize, dataTypes) => {
-    let alias = "Products";
+    let alias = "Product";
     let cols = {
         id:{
             type: dataTypes.INTEGER,
@@ -9,13 +9,13 @@ module.exports = (sequelize, dataTypes) => {
             autoIncrement: true
         },
         name: {
-            type: dataTypes.STRING
+            type: dataTypes.STRING(50)
         },
         price: {
             type: dataTypes.INTEGER
         },
         description: {
-            type: dataTypes.STRING
+            type: dataTypes.STRING(500)
         },
         brand_id: {
             type: dataTypes.INTEGER
@@ -31,16 +31,43 @@ module.exports = (sequelize, dataTypes) => {
         tableName: "products",
         timestamps: false
     };
-    const product = sequelize.define(alias, cols, config);
+    const Product = sequelize.define(alias, cols, config);
 
 //DEFINO RELACIONES ENTRE TABLAS
     //RELACION PRODUCTO-IMAGENES 1:n HAS MANY
-    product.associate = function(models){
-        product.hasMany(models.images, {
+    Product.associate = function(models){
+        Product.hasMany(models.Image, {
             as: "images",
-            foreingKey: "product_id"
+            foreingKey: "product_id",
+            underscored: true
         })
     }
 
-    return product;
+    // //RELACION PRODUCTO-MARCA N:1 BELONGSTO
+    // Product.associate = function(models) {
+    //     Product.belongsTo(models.Brand,{
+    //         as:"brand",
+    //         foreingKey: "brand_id",
+    //         underscored: true
+    //     })
+    // }
+    // //RELACION PRODUCTO-MATERIAL N:1 BELONGSTO
+    // Product.associate = function(models) {
+    //     Product.belongsTo(models.Material,{
+    //         as:"material",
+    //         foreingKey: "material_id",
+    //         underscored: true
+    //     })
+    // }
+
+    // //RELACION PRODUCTO-COLOR N:1 BELONGSTO
+    // Product.associate = function(models) {
+    //     Product.belongsTo(models.Color,{
+    //         as:"color",
+    //         foreingKey: "color_id",
+    //         underscored: true
+    //     })
+    // }
+
+    return Product;
 }

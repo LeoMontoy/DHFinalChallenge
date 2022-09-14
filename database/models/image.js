@@ -1,7 +1,7 @@
 const sequelize = require("sequelize");
 
 module.exports = (sequelize, dataTypes) => {
-    let alias = "Images";
+    let alias = "Image";
     let cols = {
         id:{
             type: dataTypes.INTEGER,
@@ -17,18 +17,20 @@ module.exports = (sequelize, dataTypes) => {
     };
     let config = {
         tableName: "images",
-        timestamps: false
+        timestamps: false,
+        underscored: true
     };
-    const image = sequelize.define(alias, cols, config);
+    const Image = sequelize.define(alias, cols, config);
 
 //DEFINO RELACIONES ENTRE TABLAS
     //RELACION PRODUCTO-IMAGENES 1:n HAS MANY
-    product.associate = function(models){
-        product.belongsTo(models.products, {
-            as: "products",
+
+    Image.associate = function(models){
+        Image.belongsTo(models.Product, {
+            as: "product",
             foreingKey: "product_id"
         })
     }
 
-    return image;
+    return Image;
 }

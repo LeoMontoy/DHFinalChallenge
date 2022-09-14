@@ -5,11 +5,18 @@
     <link rel='stylesheet' href='/stylesheets/style.css' />
   </head>
   <body>
-    <h1>Listado de PRODUCTOS</h1>
+    <div class="header"><h1>LISTADO DE PRODUCTOS</h1></div>
+    
+    <h2>Mis productos: <%= productos.id %> </h2>
     <ul>
-      <% for (let i=0; i<productos.length; i++) { %>
+      <% for (let i=0; i < productos.length; i++) { %>
           <li>
-            <% productos[i].name %>
+            <h4><%= productos[i].dataValues.id+" "+productos[i].dataValues.name%></h4>
+            <% if (productos[i].images[0]){ %> 
+              <% for (let j=0; j < productos[i].images.length; j++) { %> 
+            <img class="prodPics" src="<%= productos[i].images[j].dataValues.url%>" alt="Imagen_Producto">
+            <% } %>  
+            <% } %> 
           </li>
       <% } %> 
     </ul>

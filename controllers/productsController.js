@@ -1,13 +1,18 @@
-let db = require("../database/models");
+const db = require("../database/models/index");
 
 let productsController = {
     list: function(req,res){
-        db.Products.findAll()
+        db.Product.findAll({
+            include: [{association: "images"}]
+        })
             .then(function(productos){
-                res.render("index", {productos:productos})
+                console.log("Lectura en DB correcta")
+                res.render("listado", {productos:productos})
+            })
+            .catch(e => {
+                console.log("Error en Controlador de Productos: "+e)
             })
     }
 }
-
 
 module.exports = productsController;

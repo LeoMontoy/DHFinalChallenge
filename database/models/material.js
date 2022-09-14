@@ -1,7 +1,7 @@
 const sequelize = require("sequelize");
 
 module.exports = (sequelize, dataTypes) => {
-    let alias = "Materials";
+    let alias = "Material";
     let cols = {
         id:{
             type: dataTypes.INTEGER,
@@ -16,7 +16,16 @@ module.exports = (sequelize, dataTypes) => {
         tableName: "material",
         timestamps: false
     };
-    const material = sequelize.define(alias, cols, config);
+    const Material = sequelize.define(alias, cols, config);
 
-    return material;
+    // //RELACION MATERIAL-PRODUCTO 1:n HAS MANY
+    // Material.associate = function(models){
+    //     Material.hasMany(models.Product, {
+    //         as: "product",
+    //         foreingKey: "product_id",
+    //         underscored: true
+    //     })
+    // }    
+
+    return Material;
 }

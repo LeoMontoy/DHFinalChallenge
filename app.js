@@ -7,6 +7,7 @@ const methodOverride = require('method-override');
 
 const API = require('./routes/APIrouter');
 const index = require('./routes/Router');
+const productoRoutes = require('./routes/productoRoutes')
 
 const app = express();
 const port = 9000;

@@ -1,8 +1,20 @@
 body {
-  padding: 50px;
+  padding: 0px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background-color: white;
+  margin: 0px;
 }
 
+div.header{
+  padding: 20px;
+  text-align: center;
+  background-color: green;
+  font-weight: bolder;
+  font-size: larger;
+}
 a {
   color: #00B7FF;
+}
+.prodPics{
+  width: 300px;
 }
