@@ -3,7 +3,7 @@ const db = require("../database/models/index");
 let productsController = {
     list: function(req,res){
         db.Product.findAll({
-            include: [{association: "images"}]
+            include: [{association: "images"}, {association: "brand"}, {association: "color"}, {association: "material"}]
         })
             .then(function(productos){
                 console.log("Lectura en DB correcta")

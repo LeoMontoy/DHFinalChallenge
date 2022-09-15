@@ -18,14 +18,14 @@ module.exports = (sequelize, dataTypes) => {
     };
     const Color = sequelize.define(alias, cols, config);
 
-    // //RELACION MATERIAL-PRODUCTO 1:n HAS MANY
-    // Color.associate = function(models){
-    //     Color.hasMany(models.Product, {
-    //         as: "product",
-    //         foreingKey: "product_id",
-    //         underscored: true
-    //     })
-    // } 
+    //RELACION COLOR-PRODUCTO 1:n HAS MANY
+        Color.associate = function(models){
+            Color.hasMany(models.Product, {
+                as: "product",
+                foreingKey: "product_id",
+                underscored: true
+            })
+    } 
     return Color;
 }
 

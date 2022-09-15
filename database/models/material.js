@@ -9,23 +9,24 @@ module.exports = (sequelize, dataTypes) => {
             autoIncrement: true
         },
         name: {
-            type: dataTypes.STRING
+            type: dataTypes.STRING(50)
         }
     };
     let config = {
         tableName: "material",
-        timestamps: false
+        timestamps: false,
+        underscored: true
     };
     const Material = sequelize.define(alias, cols, config);
 
-    // //RELACION MATERIAL-PRODUCTO 1:n HAS MANY
-    // Material.associate = function(models){
-    //     Material.hasMany(models.Product, {
-    //         as: "product",
-    //         foreingKey: "product_id",
-    //         underscored: true
-    //     })
-    // }    
+    //RELACION MATERIAL-PRODUCTO 1:n HAS MANY
+    Material.associate = function(models){
+        
+        Material.hasMany(models.Product, {
+            as: "products",
+            foreingKey: "product_id"
+        })
+    }    
 
     return Material;
 }

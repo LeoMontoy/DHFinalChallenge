@@ -11,12 +11,12 @@
     <ul>
       <% for (let i=0; i < productos.length; i++) { %>
           <li>
-            <h4><%= productos[i].dataValues.id+" "+productos[i].dataValues.name%></h4>
-            <% if (productos[i].images[0]){ %> 
+            <h4><%= productos[i].dataValues.id+" "+productos[i].dataValues.name+" Marca: "+productos[i].brand.dataValues.name+" Color: "+productos[i].color.dataValues.name%></h4>
+            <!-- <% if (productos[i].images[0]){ %> 
               <% for (let j=0; j < productos[i].images.length; j++) { %> 
             <img class="prodPics" src="<%= productos[i].images[j].dataValues.url%>" alt="Imagen_Producto">
             <% } %>  
-            <% } %> 
+            <% } %>  -->
           </li>
       <% } %> 
     </ul>

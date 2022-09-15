@@ -26,6 +26,7 @@ module.exports = (sequelize, dataTypes) => {
     //RELACION PRODUCTO-IMAGENES 1:n HAS MANY
 
     Image.associate = function(models){
+        
         Image.belongsTo(models.Product, {
             as: "product",
             foreingKey: "product_id"

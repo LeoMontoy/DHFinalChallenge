@@ -29,45 +29,46 @@ module.exports = (sequelize, dataTypes) => {
     };
     let config = {
         tableName: "products",
-        timestamps: false
+        timestamps: false,
+        underscored: true
     };
     const Product = sequelize.define(alias, cols, config);
 
 //DEFINO RELACIONES ENTRE TABLAS
-    //RELACION PRODUCTO-IMAGENES 1:n HAS MANY
+    
     Product.associate = function(models){
+
+    //RELACION PRODUCTO-IMAGENES 1:n HAS MANY
         Product.hasMany(models.Image, {
             as: "images",
-            foreingKey: "product_id",
+            foreingKey: "product_id"
+        })
+
+    //RELACION PRODUCTO-MATERIAL N:1 BELONGSTO
+        Product.belongsTo(models.Material,{
+            as:"material",
+            foreingKey: "material_id"
+        })
+
+    //RELACION PRODUCTO-MARCA N:1 BELONGSTO
+        Product.belongsTo(models.Brand,{
+            as:"brand",
+            foreingKey: "brand_id"
+        })
+
+    //RELACION PRODUCTO-COLOR N:1 BELONGSTO
+        Product.belongsTo(models.Color,{
+            as:"color",
+            foreingKey: "color_id",
             underscored: true
         })
+        
+
     }
 
-    // //RELACION PRODUCTO-MARCA N:1 BELONGSTO
-    // Product.associate = function(models) {
-    //     Product.belongsTo(models.Brand,{
-    //         as:"brand",
-    //         foreingKey: "brand_id",
-    //         underscored: true
-    //     })
-    // }
-    // //RELACION PRODUCTO-MATERIAL N:1 BELONGSTO
-    // Product.associate = function(models) {
-    //     Product.belongsTo(models.Material,{
-    //         as:"material",
-    //         foreingKey: "material_id",
-    //         underscored: true
-    //     })
-    // }
 
-    // //RELACION PRODUCTO-COLOR N:1 BELONGSTO
-    // Product.associate = function(models) {
-    //     Product.belongsTo(models.Color,{
-    //         as:"color",
-    //         foreingKey: "color_id",
-    //         underscored: true
-    //     })
-    // }
+
+
 
     return Product;
 }

@@ -18,14 +18,14 @@ module.exports = (sequelize, dataTypes) => {
     };
     const Brand = sequelize.define(alias, cols, config);
 
-    // //RELACION MARCA-PRODUCTO 1:n HAS MANY
-    // Brand.associate = function(models){
-    //     Brand.hasMany(models.Product, {
-    //         as: "product",
-    //         foreingKey: "product_id",
-    //         underscored: true
-    //     })
-    // }
+    //RELACION MARCA-PRODUCTO 1:n HAS MANY
+        Brand.associate = function(models){
+            Brand.hasMany(models.Product, {
+                as: "product",
+                foreingKey: "product_id",
+                underscored: true
+            })
+        }
 
     return Brand;
 }
