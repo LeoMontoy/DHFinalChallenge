@@ -37,6 +37,14 @@ a {
 
 .titulo{
   text-align: center;
+  font-size:x-large ;
+}
+.description{
+  padding-left: 300px;
+  padding-right: 300px;
+  text-align: center;
+  color: grey;
+  font-size: small;
 }
 
 .botonAgregar{
