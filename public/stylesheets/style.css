@@ -16,5 +16,69 @@ a {
   color: #00B7FF;
 }
 .prodPics{
+  height: 150px;
+  box-shadow: 10px;
+}
+.listado{
+  text-align: center;
+  list-style-type: none;
+}
+
+.prodCar{
+  text-align: center;
+  width: 200px;
+  box-shadow: 10px;
+}
+
+.logoDH{
   width: 300px;
+  
+}
+
+.titulo{
+  text-align: center;
+}
+
+.botonAgregar{
+  color: white;
+  background-color: blue;
+  padding: 10px;
+  padding-left: 40px;
+  padding-right: 40px;
+  border-radius: 10px;
+  border-color: black;
+  border: 20px;
+  text-decoration: none;
+}
+.botonEditar{
+  color: white;
+  background-color: green;
+  padding: 10px;
+  border-radius: 10px;
+  border-color: black;
+  border: 20px;
+  text-decoration: none;
+}
+.botonBorrar{
+  color: white;
+  background-color: red;
+  padding: 10px;
+  border-radius: 10px;
+  border-color: black;
+  border: 20px;
+  text-decoration: none;
+}
+
+.sectionButton{
+  text-align: center;
+  margin-top: 30px;
+  
+}
+
+.formulario{
+  margin: auto;
+  width: 20%;
+}
+.botones{
+  text-align: center;
 }

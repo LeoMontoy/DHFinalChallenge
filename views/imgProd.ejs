@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="es">
+
+  <head>
+    <title></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+
+<body>
+    <figure>
+        <img class="logoDH" src="/images/logo-DH.png" alt="Logo Digital House">
+      </figure>
+    <h1 class="titulo">AGREGÁ UNA IMAGEN A TU PRODUCTO </h1>
+    <section class="formulario">
+        <form action="/createimg" method="POST">
+
+            <p><%=productos[productos.length-1].dataValues.name%></p>
+
+            <label for="url">URL de la Imagen: </label>
+            <p><input type="text" name="url" ></p>
+            <input type="hidden" name="product_id" value="<%= productos[productos.length-1].dataValues.id %> " >
+
+            <p> <button class="botonAgregar" type="submit">Agregar</button>
+        
+            <a  class="botonVolver" href="/">Ver todos los productos</a></p>
+        </form>
+    </section>
+</body>
+
+</html>

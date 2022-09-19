@@ -5,20 +5,29 @@
     <link rel='stylesheet' href='/stylesheets/style.css' />
   </head>
   <body>
-    <div class="header"><h1>LISTADO DE PRODUCTOS</h1></div>
+    <figure>
+      <img class="logoDH" src="/images/logo-DH.png" alt="Logo Digital House">
+    </figure>
+  <h1 class="titulo">LISTADO DE PRODUCTOS </h1>
     
-    <h2>Mis productos: <%= productos.id %> </h2>
-    <ul>
+    <ul class="listado">
       <% for (let i=0; i < productos.length; i++) { %>
-          <li>
+          <li class="prodCard">
             <h4><%= productos[i].dataValues.id+" "+productos[i].dataValues.name+" Marca: "+productos[i].brand.dataValues.name+" Color: "+productos[i].color.dataValues.name%></h4>
-            <!-- <% if (productos[i].images[0]){ %> 
+            <% if (productos[i].images[0]){ %> 
               <% for (let j=0; j < productos[i].images.length; j++) { %> 
             <img class="prodPics" src="<%= productos[i].images[j].dataValues.url%>" alt="Imagen_Producto">
             <% } %>  
-            <% } %>  -->
+            <% } %> 
+            <section>
+              <a  class="botonEditar" href="/edit/<%=productos[i].dataValues.id%>">Editar Producto</a>
+              <a  class="botonBorrar" href="/delete/<%=productos[i].dataValues.id%>">Borrar</a>
+          </section>
           </li>
       <% } %> 
+      <section class="sectionButton">
+        <a href="/create" class="botonAgregar">Agregar Productos</a>
+      </section>
     </ul>
   </body>
 </html>

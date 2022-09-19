@@ -10,22 +10,20 @@
     <figure>
         <img class="logoDH" src="/images/logo-DH.png" alt="Logo Digital House">
       </figure>
-    <h1 class="titulo">AGREGAR PRODUCTOS </h1>
+    <h1 class="titulo">AGREGAR PRODUCTOS (revisa los datos) </h1>
     <section class="formulario">
         <form action="/create" method="POST">
 
             <label for="name">Producto: </label>
             <p><input type="text" name="name" ></p>
-            <% if(errors.name){ %> 
-              <p style="color: red;"><%= errors.name.msg %> </p>
-            <% } %> 
 
             <label for="description">Descripcion: </label>
-            <p><input type="text" name="description" id="" ></p>    
-            
+            <p><input type="text" name="description" id="" ></p>
+
             <% if(errors.description){ %> 
-              <p style="color: red;"><%= errors.description.msg %> </p>
+              <p><%= errors.description.msg %> </p>
             <% } %> 
+            
 
             <label for="brand_id">Marca: </label>
             <p> <select name="brand_id" id="">
@@ -34,11 +32,6 @@
                 <option value="<%= marcas[i].dataValues.id %>"><%=  marcas[i].dataValues.name %></option>
                <% } %>
             </select> </p>
-            <% if(errors.marca_id){ %> 
-              <p style="color: red;"><%= errors.marca_id.msg %> </p>
-            <% } %> 
-
-
             <label for="color_id">Color: </label>
             <p> <select name="color_id" id="">
               <option >Elegí el color..</option>
@@ -46,9 +39,6 @@
                 <option value="<%= colores[i].dataValues.id %>"><%=  colores[i].dataValues.name %></option>
                <% } %>
             </select> </p>
-            <% if(errors.color_id){ %> 
-              <p style="color: red;"><%= errors.color_id.msg %> </p>
-            <% } %> 
 
             <label for="material_id">Material: </label>
             <p> <select name="material_id" id="">
@@ -57,16 +47,11 @@
                 <option value="<%= material[i].dataValues.id %>"><%=  material[i].dataValues.name %></option>
                <% } %>
             </select> </p>
-            <% if(errors.material_id){ %> 
-              <p style="color: red;"><%= errors.material_id.msg %> </p>
-            <% } %> 
-
             <label for="price">Precio:  </label>
-            <p><input type="number" name="price" id="" value="" ></p>
-            <% if(errors.price){ %> 
-              <p style="color: red;"><%= errors.price.msg %> </p>
-            <% } %> 
+            <p><input type="number" name="price" id="" value="" required></p>
             <br>
+
+
 
             <p> <button class="botonAgregar" type="submit">Agregar</button>
         

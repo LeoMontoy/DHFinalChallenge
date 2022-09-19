@@ -5,15 +5,21 @@
     <link rel='stylesheet' href='/stylesheets/style.css' />
   </head>
   <body>
-    <div class="header"><h1>EDITAR/ELIMINAR PRODUCTO</h1></div>
-    
-    <h2>Mis productos: <%= productos.id %> </h2>
-    <ul>
-      <% for (let i=0; i < productos.length; i++) { %>
-          <li>
-            <h4><%= productos[i].dataValues.id+" "+productos[i].dataValues.name%></h4>
-          </li>
-      <% } %> 
-    </ul>
+
+    <figure>
+      <img class="logoDH" src="/images/logo-DH.png" alt="Logo Digital House">
+    </figure>
+
+  <h1>Estas seguro de querer borrar este producto: <%= producto.name %>???</h1>
+  <p>
+    <form action="/delete/<%= producto.id %>?_method=DELETE" method="POST">
+        <br>
+        <p> <button class="botonBorrar" type="submit">Borrar producto</button>
+        
+        <a  class="botonVolver" href="/">Listado de productos</a></p>
+
+    </form>
+</p>
+
   </body>
 </html>
