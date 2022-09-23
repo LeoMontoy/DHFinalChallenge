@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 19-09-2022 a las 23:48:03
+-- Tiempo de generación: 23-09-2022 a las 23:25:01
 -- Versión del servidor: 10.4.24-MariaDB
 -- Versión de PHP: 8.1.6
 
@@ -86,7 +86,11 @@ CREATE TABLE `images` (
 INSERT INTO `images` (`id`, `url`, `product_id`) VALUES
 (1, 'https://sneakerbardetroit.com/wp-content/uploads/2022/02/Air-Jordan-1-Brotherhood-555088-706-Release-Date-1.jpeg', 1),
 (5, 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTymfthShxfJF2xqCGJQ7PxcrLS_D7_YsqcZw&usqp=CAU', 4),
-(15, 'https://i.ebayimg.com/images/g/CxEAAOSw~atb2wbV/s-l500.jpg', 111);
+(15, 'https://i.ebayimg.com/images/g/CxEAAOSw~atb2wbV/s-l500.jpg', 111),
+(18, 'https://e00-marca.uecdn.es/assets/multimedia/imagenes/2018/07/31/15330534472974.jpg', 116),
+(19, 'https://thumbs.nosto.com/quick/rbxh5h46/8/244418_alt_0a745037085ac24bb6d2ae90cda37716fabe9b0203494e03b375e98910595386/81ee8d3375a4ef82ba4be93c060acd436ea2d749751db423ca73eb4dd6dc20c6/A', 117),
+(20, 'https://static.eldiario.es/clip/73a81344-37e9-4256-9d69-ab6b7ce0d38b_16-9-discover-aspect-ratio_default_0.jpg', 118),
+(21, 'https://www.america-retail.com/static/2022/05/Reebok-e1651668809522.jpeg', 119);
 
 -- --------------------------------------------------------
 
@@ -133,7 +137,11 @@ CREATE TABLE `products` (
 INSERT INTO `products` (`id`, `name`, `price`, `description`, `brand_id`, `material_id`, `color_id`) VALUES
 (1, 'Jordan 1 High OG “Brotherhood”', 170, 'Dressed in a University Gold, Light Bordeaux, and White color scheme. This Air Jordan 1 features White leather side panels, nylon tongues, and midsole paired with Gold and Purple overlays nodding to the colors of the fraternity. A White midsole atop a Yellow rubber outsole completes the design.', 1, 1, 1),
 (4, 'Converse Chuck Taylor All Star Hi', 100, 'Estos zapatos clásicos tienen una parte superior de lona negra y una puntera y suela de goma en color blanco. Son terminados con gráfico logo Converse imprimido por el lado', 6, 3, 2),
-(111, 'Under Armour Men Black Canvas', 40000, 'Full style, Recomendado para el hombre elegante, de buen vestir.', 4, 4, 2);
+(111, 'Under Armour Men Black Canvas', 40000, 'Full style, Recomendado para el hombre elegante, de buen vestir.', 4, 4, 2),
+(116, 'Camiseta Basket Lakers ', 33000, ' NBA Los Lakers desvelan su camiseta Showtime para la próxima temporada!', 2, 2, 6),
+(117, 'Short Selección Argentina', 10000, 'Short seleccion Argentina Qatar 2022', 3, 3, 2),
+(118, 'Camiseta Argentina Futbol', 18200, 'La nueva camiseta alternativa Argentina 2022 Qatar 2022', 3, 3, 4),
+(119, 'Zapatillas UnderGround Life', 32600, 'El nuevo modelo de la marca define estilo underground para todo el que vive una vida con flow', 5, 4, 5);
 
 --
 -- Índices para tablas volcadas
@@ -193,7 +201,7 @@ ALTER TABLE `color`
 -- AUTO_INCREMENT de la tabla `images`
 --
 ALTER TABLE `images`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT de la tabla `material`
@@ -205,7 +213,7 @@ ALTER TABLE `material`
 -- AUTO_INCREMENT de la tabla `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=112;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=120;
 
 --
 -- Restricciones para tablas volcadas

@@ -2,31 +2,18 @@ const db = require("../database/models/index");
 let sequelize = require('sequelize');
 const APIcontroller = {
     products: function(req,res){
-        let listProd = db.Product.findAll({
+        db.Product.findAll({
             include: [{association: "images"}, {association: "brand"}, {association: "color"}, {association: "material"}]
         })
-        let lastProd = db.Product.findOne({
-            order: [['id', 'DESC']],
-            // include: [{ attributes: ['name']}],
-            include: [{association: "images"}, {association: "brand"}, {association: "color"}, {association: "material"}]
-          });
         
-        Promise.all([listProd,lastProd])
             .then(function(result){
                 console.log("Lectura en DB correcta")
                 let resp = {
-                    meta:{
-                        status: 200,
-                        total: result[0].length,
-                        url: '/products'
-
-                    },
-                    data: result[0],
-
-                    last: result[1]
+                    
+                     data:result
                 }
                 console.log("Se ejecuto el .then"+result)
-                return res.json(resp)
+                return res.json(result)
             })
             .catch(e => {
                 console.log("Error en Controlador de Productos: "+e)
@@ -60,7 +47,7 @@ const APIcontroller = {
                 },
                 data: {productos}
             }
-            res.json(resp)
+            res.json([productos])
         })
         .catch(e => {
             console.log("Error en Controlador de Productos: "+e)
@@ -69,8 +56,6 @@ const APIcontroller = {
          
     },
 
-
-    
 
     brand: function(req,res){
         
